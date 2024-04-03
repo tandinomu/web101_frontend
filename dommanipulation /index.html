@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+</head>
+<body>
+    <h1 id="heading">DOM Manipulation</h1>
+
+    <button id="red">
+        Red
+    </button>
+
+    <button id="blue">
+        Blue
+    </button>
+
+    <button id="white">
+        White
+    </button>
+
+    <button id="purple">
+        Purple
+    </button>
+
+    <button id="surpriseBtn">
+        Surprise Me
+    </button>
+
+    <button id="dontSurpriseBtn">
+        Don't Surprise Me
+    </button>
+
+    <script>
+        console.log("Hello")
+
+        function consoleRed() {
+            console.log("Red clicked")
+            document.body.style.backgroundColor = 'red';
+        }
+
+        function consoleBlue() {
+            console.log("Blue clicked")
+            document.body.style.backgroundColor = 'blue';
+        }
+
+        function addTextWhite() {
+            cosole.log("white cliked")
+            document.getElementById('heading').classList.remove('textPurple');
+            document.getElementById('heading').classList.add('textWhite');
+        }
+
+        function addTextPurple() {
+            console.log("purple clicked")
+            document.getElementById('heading').classList.remove('textWhite');
+            document.getElementById('heading').classList.add('textPurple');
+        }
+
+
+        function addSurprise() {
+            console.log("surpriseBtn clicked")
+            const surpriseText = document.createElement('p');
+            surpriseText.textContent = "You're Surprised";
+            document.body.appendChild(surpriseText);
+        }
+
+        function removeSurprise() {
+            console.log("surpriseBtn removed")
+            const surpriseText = document.querySelector('p');
+            if (surpriseText) {
+                surpriseText.remove();
+            }
+        }
+
+        const redButton = document.getElementById('red');
+        const blueButton = document.getElementById('blue');
+        const whiteButton = document.getElementById('white');
+        const purpleButton = document.getElementById('purple');
+        const surpriseBtn = document.getElementById('surpriseBtn');
+        const dontSurpriseBtn = document.getElementById('dontSurpriseBtn');
+
+        redButton.addEventListener('click', consoleRed);
+        blueButton.addEventListener('click', consoleBlue);
+        whiteButton.addEventListener('click', addTextWhite);
+        purpleButton.addEventListener('click', addTextPurple);
+        surpriseBtn.addEventListener('click', addSurprise);
+        dontSurpriseBtn.addEventListener('click', removeSurprise);
+    </script>
+
+    <style>
+        .textWhite {
+            color: white;
+        }
+
+        .textPurple {
+            color: purple;
+        }
+    </style>
+</body>
+</html>
